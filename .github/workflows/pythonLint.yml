@@ -13,6 +13,6 @@ jobs:
         - uses: actions/setup-python@v6.2.0
         with: # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
                 python-version: '3.13'
-uses: super-linter/super-linter@v7.1.0
+        - uses: super-linter/super-linter@v7.1.0
         with: 
              linter: pylint
