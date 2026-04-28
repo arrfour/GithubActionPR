@@ -17,4 +17,4 @@ jobs:
       - uses: psf/black@stable
         with:
           options: "--check --verbose"
-          src: "main.py"  # Directory to check
+          src:   # Directory to check
