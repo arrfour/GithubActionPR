@@ -1,18 +1,19 @@
-name: python linting
+name: Python linting
 
-on:
-- workflow_dispatch
+on: 
+  - workflow_dispatch
 
-jobs:
- lintingOperation: #this is a name of a job
-        permissions:
-            security-events: read
-        runs-on: ubuntu-latest
-        steps:    
-        - uses: actions/checkout@v6
-        - uses: actions/setup-python@v6.2.0
-        with: # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
-                python-version: '3.13'
-        - uses: super-linter/super-linter@v7.1.0
-        with: 
-             linter: pylint
+jobs: 
+  lintingOperation:   # this is the name of a job
+    permissions:
+      security-events: read
+    runs-on: ubuntu-latest   # this is the snowglobe to use for the work
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13' 
+      - uses: psf/black@stable
+        with:
+          options: "--check --verbose"
+          src: "main.py"  # Directory to check
