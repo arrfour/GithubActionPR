@@ -1,14 +1,18 @@
 name: python linting
-on: [workflow_dispatch]
+
+on:
+- workflow_dispatch
+
 jobs:
     LintingOperation: #this is a name of a job
-    runs-on: ubuntu-latest
-    steps:    
-    - uses: actions/checkout@v6
-    - uses: actions/setup-python@v6.2.0
-    with:
-        # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
-        python-version: '3.13'
-    - uses: super-linter/super-linter@v7.1.0
-    with: 
-        - linter: pylint
+        permissions:
+            security-events: read
+        runs-on: ubuntu-latest
+        steps:    
+        - uses: actions/checkout@v6
+        - uses: actions/setup-python@v6.2.0
+            with: # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
+                python-version: '3.13'
+        - uses: super-linter/super-linter@v7.1.0
+            with: 
+             linter: pylint
