@@ -17,4 +17,4 @@ jobs:
       - uses: psf/black@stable
         with:
           options: "--check --verbose"
-          src: github  # Directory to check
+          src: '/'  # Directory to check
