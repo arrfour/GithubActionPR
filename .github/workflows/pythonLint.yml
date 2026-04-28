@@ -1,8 +1,7 @@
 name: python linting
 
 on: [workflow_dispatch]
-
-jobs:
+ jobs:
     LintingOperation: #this is a name of a job
     runs-on: ubuntu-latest
     steps:    
